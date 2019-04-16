@@ -1,0 +1,25 @@
+<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+<p>Have subscribed to a Slanger channel</p>
+<p>Listening via WebSocket...</p>
+
+<script type="text/javascript">
+    var pusher = new Pusher('application_key', {
+    wsHost: "172.17.0.2",
+    wsPort: "8080",
+    cluster : 'mt1',
+    appId: '123456',
+    enabledTransports: ['ws', 'flash']
+  });
+    console.log(channel)
+
+    var channel = pusher.subscribe('MY_CHANNEL');
+    channel.bind('AN_EVENT', function(data) {
+        console.log('data: ', data);
+    });
+    console.log(channel)
+
+    Pusher.log = function(data) {
+        console.log('\t\t', data);
+    };
+</script>
